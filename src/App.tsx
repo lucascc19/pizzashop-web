@@ -1,9 +1,11 @@
+import { QueryClientProvider } from "@tanstack/react-query";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { RouterProvider } from "react-router-dom";
 import { Toaster } from "sonner";
-import "./index.css";
-import { router } from "./routes";
 import { ThemeProvider } from "./components/theme/theme-provider";
+import "./index.css";
+import { queryClient } from "./lib/react-query";
+import { router } from "./routes";
 
 export const App = () => {
   return (
@@ -11,7 +13,9 @@ export const App = () => {
       <ThemeProvider storageKey="pizzashop-theme" defaultTheme="dark">
         <Helmet titleTemplate="%s | pizza.shopp" />
         <Toaster richColors />
-        <RouterProvider router={router} />
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
       </ThemeProvider>
     </HelmetProvider>
   );
