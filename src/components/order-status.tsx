@@ -17,9 +17,9 @@ interface OrderStatusStyle {
 const orderStatusMap: Record<OrderStatus, OrderStatusStyle> = {
   pending: { label: "Pendente", color: "bg-slate-400" },
   canceled: { label: "Cancelado", color: "bg-rose-500" },
-  delivered: { label: "Entregue", color: "bg-emerald-500" },
-  delivering: { label: "Em entrega", color: "bg-amber-500" },
   processing: { label: "Em preparo", color: "bg-amber-500" },
+  delivering: { label: "Em entrega", color: "bg-amber-500" },
+  delivered: { label: "Entregue", color: "bg-emerald-500" },
 };
 
 export const OrderStatus = ({ status }: OrderStatusProps) => {
